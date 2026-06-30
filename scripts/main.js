@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const year = project.dataset.year;
     const tag = project.dataset.tag;
 
-    modalNum.textContent = projectId;
+    modalNum.textContent = project.dataset.num || projectId;
     modalTitle.textContent = title;
     modalMeta.textContent = `${tag} · ${year}`;
     modalGallery.innerHTML = '';
@@ -167,4 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'ArrowRight') showNextProject(1);
     if (event.key === 'ArrowLeft') showNextProject(-1);
   });
+
+  /* ---- Mobile navigation (hamburger menu) ------------------------------- */
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav__toggle');
+
+  function setNavOpen(open) {
+    nav.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      setNavOpen(!nav.classList.contains('is-open'));
+    });
+
+    nav.querySelectorAll('.nav__links a').forEach((link) => {
+      link.addEventListener('click', () => setNavOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        setNavOpen(false);
+      }
+    });
+  }
 });

@@ -20,9 +20,16 @@
        ============================================================ -->
   <header class="nav">
     <a href="#top" class="nav__brand">Don't click this</a>
-    <nav class="nav__links" aria-label="Primary">
+    <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+    </button>
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
       <a href="#works">Works</a>
+      <a href="#lab">Lab</a>
       <a href="#about">About</a>
+      <a href="#certs">Certs</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -66,28 +73,29 @@
     </section>
 
     <!-- ============================================================
-         WORKS — scroll-snapping project panels
+         WORKS — scroll project panels
          ----------------------------------------------------------
          Each <article class="project"> is a full-screen panel.
          Click the panel (or its button) to open the gallery modal.
-         ADD / REMOVE / REORDER projects freely. The side rail
-         (roman numerals) auto-generates from these.
+
+         data-project  → which images/projects/project-XX/ folder
+                         the gallery + cover pull from (stable id).
+         data-num      → the numeral/label shown on the panel and
+                         in the modal header (display order).
+
+         Cover image:   images/projects/project-XX/cover.png
+         Gallery images: images/projects/project-XX/01.png … 04.png
+
+         The "latest update" line is a short, human summary of the
+         most recent GitHub commit. Projects with no GitHub repo
+         simply omit it.
          ============================================================ -->
     <section class="works" id="works">
 
-      <!-- ============================================================
-           PROJECT I
-           IMAGES TO ADD:
-             Cover (shown on this panel):
-               → images/projects/project-01/cover.png
-             Gallery (shown after clicking):
-               → images/projects/project-01/01.png
-               → images/projects/project-01/02.png
-               → images/projects/project-01/03.png
-               → images/projects/project-01/04.png
-           ============================================================ -->
+      <!-- ===== I · Budgeting app (images: project-01) ===== -->
       <article class="project"
                data-project="01"
+               data-num="I"
                data-title="Budgeting app w/ Plaid API"
                data-year="2026"
                data-tag="Personal Development">
@@ -98,25 +106,46 @@
           <span class="project__num">I</span>
           <h2 class="project__title">Budgeting app w/ Plaid API</h2>
           <p class="project__meta">Personal Development · 2026</p>
-          <button class="project__cta" type="button" aria-label="Open project I">
+          <button class="project__cta" type="button" aria-label="Open Budgeting app">
             <span>Manage my gambling</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · Jun 2026</span>
+            Added a Credit tab that parses your credit report and tracks debt.
+          </p>
         </div>
       </article>
 
-      <!-- ============================================================
-           PROJECT II
-           IMAGES TO ADD:
-             Cover: images/projects/project-02/cover.png
-             Gallery:
-               images/projects/project-02/01.png
-               images/projects/project-02/02.png
-               images/projects/project-02/03.png
-               images/projects/project-02/04.png
-           ============================================================ -->
+      <!-- ===== II · The Reading Room / book club (images: project-07) ===== -->
+      <article class="project"
+               data-project="07"
+               data-num="II"
+               data-title="The Reading Room"
+               data-year="2026"
+               data-tag="Web App">
+        <div class="project__img">
+          <img src="images/projects/project-07/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">II</span>
+          <h2 class="project__title">The Reading Room</h2>
+          <p class="project__meta">Web App · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open The Reading Room">
+            <span>Pick the next book</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · Jun 2026</span>
+            Locked in full automated test coverage across every user action.
+          </p>
+        </div>
+      </article>
+
+      <!-- ===== III · Minecraft Mod (images: project-02) ===== -->
       <article class="project"
                data-project="02"
+               data-num="III"
                data-title="Minecraft Mod - Food Expansion"
                data-year="2026"
                data-tag="Modding">
@@ -124,28 +153,24 @@
           <img src="images/projects/project-02/cover.png" alt="" onerror="this.style.display='none'" />
         </div>
         <div class="project__content">
-          <span class="project__num">II</span>
+          <span class="project__num">III</span>
           <h2 class="project__title">Minecraft Mod - Food Expansion</h2>
           <p class="project__meta">Modding · 2026</p>
-          <button class="project__cta" type="button" aria-label="Grab a statue core">
+          <button class="project__cta" type="button" aria-label="Open Minecraft Mod">
             <span>Grab a statue core</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · Apr 2026</span>
+            Added chat logging, fixed the pet tether radius, and new item models.
+          </p>
         </div>
       </article>
 
-      <!-- ============================================================
-           PROJECT III
-           IMAGES TO ADD:
-             Cover: images/projects/project-03/cover.png
-             Gallery:
-               images/projects/project-03/01.png
-               images/projects/project-03/02.png
-               images/projects/project-03/03.png
-               images/projects/project-03/04.png
-           ============================================================ -->
+      <!-- ===== IV · Boshy clone platformer (images: project-03, no GitHub) ===== -->
       <article class="project"
                data-project="03"
+               data-num="IV"
                data-title="Platformer - I wanna be the Boshy clone"
                data-year="2025"
                data-tag="Web Game Development">
@@ -153,28 +178,20 @@
           <img src="images/projects/project-03/cover.png" alt="" onerror="this.style.display='none'" />
         </div>
         <div class="project__content">
-          <span class="project__num">III</span>
+          <span class="project__num">IV</span>
           <h2 class="project__title">Platformer - I wanna be the Boshy clone</h2>
           <p class="project__meta">Web Game Development · 2025</p>
-          <button class="project__cta" type="button" aria-label="Ragebait yourself">
+          <button class="project__cta" type="button" aria-label="Open Boshy clone">
             <span>Ragebait yourself</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
         </div>
       </article>
 
-      <!-- ============================================================
-           PROJECT IV
-           IMAGES TO ADD:
-             Cover: images/projects/project-04/cover.png
-             Gallery:
-               images/projects/project-04/01.png
-               images/projects/project-04/02.png
-               images/projects/project-04/03.png
-               images/projects/project-04/04.png
-           ============================================================ -->
+      <!-- ===== V · Laundromat Tycoon (images: project-04) ===== -->
       <article class="project"
                data-project="04"
+               data-num="V"
                data-title="LAUNDROMAT TYCOON"
                data-year="COMING SOON"
                data-tag="Game Development">
@@ -182,74 +199,154 @@
           <img src="images/projects/project-04/cover.png" alt="" onerror="this.style.display='none'" />
         </div>
         <div class="project__content">
-          <span class="project__num">IV</span>
+          <span class="project__num">V</span>
           <h2 class="project__title">LAUNDROMAT TYCOON</h2>
           <p class="project__meta">Game Development · COMING SOON</p>
-          <button class="project__cta" type="button" aria-label="Start stimming">
+          <button class="project__cta" type="button" aria-label="Open Laundromat Tycoon">
             <span>Start stimming</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · May 2026</span>
+            Added gameplay modifiers with visible in-game effects.
+          </p>
         </div>
       </article>
 
-      <!-- ============================================================
-           PROJECT V
-           IMAGES TO ADD:
-             Cover: images/projects/project-05/cover.png
-             Gallery:
-               images/projects/project-05/01.png
-               images/projects/project-05/02.png
-               images/projects/project-05/03.png
-               images/projects/project-05/04.png
-           ============================================================ -->
+      <!-- ===== VI · Cashino / idle casino (images: project-05) ===== -->
       <article class="project"
                data-project="05"
-               data-title="The Fifth Work"
-               data-year="2025"
-               data-tag="Sculpture">
+               data-num="VI"
+               data-title="Cashino"
+               data-year="2026"
+               data-tag="Web Game Development">
         <div class="project__img">
           <img src="images/projects/project-05/cover.png" alt="" onerror="this.style.display='none'" />
         </div>
         <div class="project__content">
-          <span class="project__num">V</span>
-          <h2 class="project__title">The Fifth Work</h2>
-          <p class="project__meta">Sculpture · 2025</p>
-          <button class="project__cta" type="button" aria-label="Open project V">
-            <span>Enter</span>
+          <span class="project__num">VI</span>
+          <h2 class="project__title">Cashino</h2>
+          <p class="project__meta">Web Game Development · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open Cashino">
+            <span>Lose it all faster</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · May 2026</span>
+            Merged the latest dev branch with balance tweaks and fixes.
+          </p>
         </div>
       </article>
 
-      <!-- ============================================================
-           PROJECT VI
-           IMAGES TO ADD:
-             Cover: images/projects/project-06/cover.png
-             Gallery:
-               images/projects/project-06/01.png
-               images/projects/project-06/02.png
-               images/projects/project-06/03.png
-               images/projects/project-06/04.png
-           ============================================================ -->
+      <!-- ===== VII · FILE_NOT_FOUND (images: project-06) ===== -->
       <article class="project"
                data-project="06"
-               data-title="The Sixth Work"
+               data-num="VII"
+               data-title="FILE_NOT_FOUND"
                data-year="2026"
-               data-tag="Mixed Media">
+               data-tag="Web Game Development">
         <div class="project__img">
           <img src="images/projects/project-06/cover.png" alt="" onerror="this.style.display='none'" />
         </div>
         <div class="project__content">
-          <span class="project__num">VI</span>
-          <h2 class="project__title">The Sixth Work</h2>
-          <p class="project__meta">Mixed Media · 2026</p>
-          <button class="project__cta" type="button" aria-label="Open project VI">
-            <span>Enter</span>
+          <span class="project__num">VII</span>
+          <h2 class="project__title">FILE_NOT_FOUND</h2>
+          <p class="project__meta">Web Game Development · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open FILE_NOT_FOUND">
+            <span>Clear or flag</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · Apr 2026</span>
+            Initial release — game files, character data, and styling.
+          </p>
+        </div>
+      </article>
+
+      <!-- ===== VIII · Stick & Ball Sandbox (images: project-08) ===== -->
+      <article class="project"
+               data-project="08"
+               data-num="VIII"
+               data-title="Stick & Ball Sandbox"
+               data-year="2026"
+               data-tag="Physics Sandbox">
+        <div class="project__img">
+          <img src="images/projects/project-08/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">VIII</span>
+          <h2 class="project__title">Stick & Ball Sandbox</h2>
+          <p class="project__meta">Physics Sandbox · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open Stick & Ball Sandbox">
+            <span>Wind up a throw</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+          <p class="project__update">
+            <span class="project__update-label">Latest update · Jun 2026</span>
+            Added a Boss Gauntlet mode and per-board speed multipliers.
+          </p>
+        </div>
+      </article>
+
+      <!-- ===== IX · Inbox Digest (images: project-09, no GitHub) ===== -->
+      <article class="project"
+               data-project="09"
+               data-num="IX"
+               data-title="Inbox Digest"
+               data-year="2026"
+               data-tag="Web App">
+        <div class="project__img">
+          <img src="images/projects/project-09/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">IX</span>
+          <h2 class="project__title">Inbox Digest</h2>
+          <p class="project__meta">Web App · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open Inbox Digest">
+            <span>Tame the inbox</span>
             <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           </button>
         </div>
       </article>
 
+    </section>
+
+    <!-- ============================================================
+         AI EXPERIMENTAL — "The Laboratory"
+         ----------------------------------------------------------
+         A separate space for rougher AI / agent experiments.
+         Panels use the same .project format as Works, so the
+         gallery modal works identically. Add more <article> panels
+         here as new experiments land.
+         Images: images/projects/project-XX/  (same convention)
+         ============================================================ -->
+    <section class="lab" id="lab">
+      <div class="section-head">
+        <p class="section-head__eyebrow">— AI Experimental</p>
+        <h2 class="section-head__title">The Laboratory</h2>
+        <p class="section-head__sub">Where I poke at LLMs and agents to see what sticks. Rough edges intentional.</p>
+      </div>
+
+      <!-- ===== EXP · 01 · AI Ticket Router (images: project-10, no GitHub) ===== -->
+      <article class="project"
+               data-project="10"
+               data-num="EXP · 01"
+               data-title="AI Ticket Router"
+               data-year="2026"
+               data-tag="AI · Agents">
+        <div class="project__img">
+          <img src="images/projects/project-10/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">EXP · 01</span>
+          <h2 class="project__title">AI Ticket Router</h2>
+          <p class="project__meta">AI · Agents · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open AI Ticket Router">
+            <span>Auto-triage a ticket</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
     </section>
 
     <!-- ============================================================
@@ -273,12 +370,43 @@
     </section>
 
     <!-- ============================================================
+         CERTIFICATIONS — credentials grid
+         ----------------------------------------------------------
+         Drop one <li class="cert-card"> per certification using the
+         template below. Cert logos go in images/certs/.
+
+         CERT CARD TEMPLATE:
+         <li class="cert-card">
+           <div class="cert-card__logo">
+             <img src="images/certs/CERT-ID.png" alt="" onerror="this.style.display='none'" />
+           </div>
+           <h3 class="cert-card__title">Certification Name</h3>
+           <p class="cert-card__issuer">Issuing Org · 2026</p>
+           <a class="cert-card__link" href="#" target="_blank" rel="noopener">View credential ↗</a>
+         </li>
+         ============================================================ -->
+    <section class="certs" id="certs">
+      <div class="section-head">
+        <p class="section-head__eyebrow">— Credentials</p>
+        <h2 class="section-head__title">Certifications</h2>
+        <p class="section-head__sub">Proof I occasionally finish what I start.</p>
+      </div>
+
+      <ul class="cert-grid">
+        <li class="cert-card cert-card--placeholder">
+          <span class="cert-card__mark">✦</span>
+          <p class="cert-card__note">Credentials incoming — these are on their way in.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
          CONTACT — minimal
          ============================================================ -->
     <section class="contact" id="contact">
       <p class="contact__eyebrow">— Correspondence</p>
       <h2 class="contact__title">To commission,<br />or merely to speak.</h2>
-      <a class="contact__email" href="mailto:you@domain.com">jmalcolmolexa@gmail.com</a>
+      <a class="contact__email" href="mailto:jmalcolmolexa@gmail.com">jmalcolmolexa@gmail.com</a>
       <ul class="contact__social">
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Are.na</a></li>

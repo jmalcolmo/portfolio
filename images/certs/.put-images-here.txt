@@ -1,0 +1,1 @@
+Drop certification logo images here (e.g. CERT-ID.png). See images/README.md

@@ -1,0 +1,1 @@
+Drop image files in this folder. See images/README.md
